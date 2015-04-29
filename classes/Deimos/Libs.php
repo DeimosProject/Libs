@@ -52,7 +52,7 @@ class Libs
      * @param int $length
      * @return bool
      */
-    public function force_download(
+    public static function force_download(
         $file_path = './file.txt',
         $file_download_name = 'File-Name',
         $length = 1024
@@ -90,7 +90,7 @@ class Libs
      * @param int $length
      * @return string
      */
-    public function random_characters($length = 5)
+    public static function random_characters($length = 5)
     {
 
         $alf = array_merge(
@@ -116,7 +116,7 @@ class Libs
     /**
      * @return bool
      */
-    public function is_https()
+    public static function is_https()
     {
         if (isset($_SERVER['HTTPS'])) {
             $https = $_SERVER['HTTPS'];
@@ -128,9 +128,9 @@ class Libs
     /**
      * @return string
      */
-    public function get_protocol()
+    public static function get_protocol()
     {
-        return $this->is_https() ? 'https://' : 'http://';
+        return static::is_https() ? 'https://' : 'http://';
     }
 
 }
