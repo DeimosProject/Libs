@@ -77,8 +77,10 @@ class Libs
 
             if ($fd = fopen($file_path, 'rb')) {
 
-                while (!feof($fd))
+                while (!feof($fd)) {
                     print fread($fd, $length);
+                    sleep(1);
+                }
                 return fclose($fd);
             }
         }
