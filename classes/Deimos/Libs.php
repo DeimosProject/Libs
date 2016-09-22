@@ -55,7 +55,8 @@ class Libs
     public static function force_download(
         $file_path = './file.txt',
         $file_download_name = 'File-Name',
-        $length = 1024
+        $length = 1024,
+        $sleep = false
     ) {
 
         if (file_exists($file_path)) {
@@ -79,7 +80,7 @@ class Libs
 
                 while (!feof($fd)) {
                     print fread($fd, $length);
-                    sleep(1);
+                    if ( $sleep ) sleep(1);
                 }
                 return fclose($fd);
             }
