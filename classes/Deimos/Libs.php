@@ -69,12 +69,12 @@ class Libs
 
             header('Content-Type: ' . mime_content_type($file_realpath), true);
             header('Content-Disposition: inline; filename=' . $file_download_name);
-            header('Content-Description: File Transfer');
-            header('Content-Length: ' . filesize($file_realpath));
-            header('Content-Transfer-Encoding: binary');
-            header('Cache-Control: must-revalidate');
-            header('Accept-Ranges: bytes');
-            header('Pragma: public');
+            //header('Content-Description: File Transfer');
+            //header('Content-Length: ' . filesize($file_realpath));
+            //header('Content-Transfer-Encoding: binary');
+            //header('Cache-Control: must-revalidate');
+            //header('Accept-Ranges: bytes');
+            //header('Pragma: public');
             header("Expires: " . gmdate("D, d M Y H:i:s", time() + ( 60 * 60 * 24 * 7 )) . " GMT");
             
             header("X-Accel-Redirect: " . $file_path);
