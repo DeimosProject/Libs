@@ -75,15 +75,19 @@ class Libs
             header('Accept-Ranges: bytes');
             header('Pragma: public');
             header("Expires: " . gmdate("D, d M Y H:i:s", time() + ( 60 * 60 * 24 * 7 )) . " GMT");
+            
+            header("X-Accel-Redirect: " . $file_path);
 
-            if ($fd = fopen($file_path, 'rb')) {
+            /*if ($fd = fopen($file_path, 'rb')) {
 
                 while (!feof($fd)) {
                     print fread($fd, $length);
                     if ( $sleep ) sleep(1);
                 }
                 return fclose($fd);
-            }
+            }*/
+            
+            return true;
         }
 
         return false;
