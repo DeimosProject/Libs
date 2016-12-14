@@ -81,7 +81,7 @@ class Libs
             //header('Pragma: public');
             header("Expires: " . gmdate("D, d M Y H:i:s", time() + ( 60 * 60 * 24 * 7 )) . " GMT");
             
-            header("X-Accel-Redirect: " . $file_path);
+            header("X-Accel-Redirect: " . $file_path);die;
 
             /*if ($fd = fopen($file_path, 'rb')) {
 
