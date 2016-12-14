@@ -74,7 +74,7 @@ class Libs
             header('Cache-Control: must-revalidate');
             header('Accept-Ranges: bytes');
             header('Pragma: public');
-            header('Expires: 0');
+            header("Expires: " . gmdate("D, d M Y H:i:s", time() + ( 60 * 60 * 24 * 7 )) . " GMT");
 
             if ($fd = fopen($file_path, 'rb')) {
 
