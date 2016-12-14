@@ -53,23 +53,24 @@ class Libs
      * @return bool
      */
     public static function force_download(
+        $file_realpath = './file.txt',
         $file_path = './file.txt',
         $file_download_name = 'File-Name',
         $length = 1024,
         $sleep = false
     ) {
 
-        if (file_exists($file_path)) {
+        if (file_exists($file_realpath)) {
 
             if (ob_get_level())
                 ob_end_clean();
 
             $file_download_name = str_replace(array('"', "'", ' ', ','), '_', $file_download_name);
 
-            header('Content-Type: ' . mime_content_type($file_path), true);
+            header('Content-Type: ' . mime_content_type($file_realpath), true);
             header('Content-Disposition: inline; filename=' . $file_download_name);
             header('Content-Description: File Transfer');
-            header('Content-Length: ' . filesize($file_path));
+            header('Content-Length: ' . filesize($file_realpath));
             header('Content-Transfer-Encoding: binary');
             header('Cache-Control: must-revalidate');
             header('Accept-Ranges: bytes');
