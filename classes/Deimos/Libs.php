@@ -66,8 +66,12 @@ class Libs
                 ob_end_clean();
 
             $file_download_name = str_replace(array('"', "'", ' ', ','), '_', $file_download_name);
+            
+            $mimes = new \Mimey\MimeTypes();
 
-            header('Content-Type: ' . mime_content_type($file_realpath), true);
+            $ext = pathinfo ($file_realpath, PATHINFO_EXTENSION);
+            
+            header('Content-Type: ' . $mimes->getMimeType($ext), true);
             header('Content-Disposition: inline; filename=' . $file_download_name);
             //header('Content-Description: File Transfer');
             //header('Content-Length: ' . filesize($file_realpath));
