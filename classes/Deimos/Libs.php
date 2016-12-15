@@ -71,6 +71,7 @@ class Libs
 
             $ext = pathinfo ($file_realpath, PATHINFO_EXTENSION);
             
+            header("X-Accel-Redirect: " . $file_path, true);
             header('Content-Type: ' . $mimes->getMimeType($ext), true);
             header('Content-Disposition: inline;filename="' . $file_download_name . '"', true);
             //header('Content-Description: File Transfer');
@@ -79,9 +80,9 @@ class Libs
             //header('Cache-Control: must-revalidate');
             //header('Accept-Ranges: bytes');
             //header('Pragma: public');
-            header("Expires: " . gmdate("D, d M Y H:i:s", time() + ( 60 * 60 * 24 * 7 )) . " GMT");
+            header("Expires: " . gmdate("D, d M Y H:i:s", time() + ( 60 * 60 * 24 * 7 )) . " GMT", true);
             
-            header("X-Accel-Redirect: " . $file_path, true);die;
+            die;
 
             /*if ($fd = fopen($file_path, 'rb')) {
 
