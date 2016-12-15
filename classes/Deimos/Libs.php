@@ -72,7 +72,7 @@ class Libs
             $ext = pathinfo ($file_realpath, PATHINFO_EXTENSION);
             
             header('Content-Type: ' . $mimes->getMimeType($ext), true);
-            header('Content-Disposition: inline; filename=' . $file_download_name, true);
+            header('Content-Disposition: inline;filename="' . $file_download_name . '"', true);
             //header('Content-Description: File Transfer');
             //header('Content-Length: ' . filesize($file_realpath));
             //header('Content-Transfer-Encoding: binary');
