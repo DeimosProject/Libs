@@ -71,7 +71,7 @@ class Libs
 
             $ext = pathinfo ($file_realpath, PATHINFO_EXTENSION);
             
-            header("X-Accel-Redirect: " . $file_path, true);
+            header("X-Accel-Redirect: " . $file_path . '?' $file_download_name. , true);
             header('Content-Type: ' . $mimes->getMimeType($ext), true);
             header('Content-Disposition: inline;filename="' . $file_download_name . '"', true);
             //header('Content-Description: File Transfer');
